@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FormConsultaCliente extends Principal {
-    private ArrayList<Cliente> ClientesCadastrados = new ArrayList();
 
     public void showMenuCliente()
     {
@@ -12,24 +11,42 @@ public class FormConsultaCliente extends Principal {
         System.out.println(Mensagem);        
     }
 
-    public void criarCliente()
+    public void cadastrarCliente()
     {
-        Cliente C = new Cliente();
-        Scanner scan = new Scanner(System.in);
-        int Dia, Mes, Ano;
+        try{
+            Cliente C = new Cliente();
+            Scanner scan = new Scanner(System.in);
+            int Dia, Mes, Ano;
 
-        System.out.println("Digite o nome do cliente: ");
-        C.setNome(scan.nextLine());
+            System.out.println("Digite o id do cliente");
+            C.setId(scan.nextInt());
+    
+            System.out.println("Digite o nome do cliente: ");
+            C.setNome(scan.nextLine());
+    
+            System.out.println("Digite a idade do cliente: ");
+            C.setIdade(scan.nextInt());        
+    
+            System.out.println("Digite o CPF do cliente: ");
+            C.setCPF(scan.nextInt());
+    
+            System.out.println("=-=-=-=-=-=-=-=-=-=-=-Vamos Agora Informar a Data De Nascimento do Cliente=-=-=-=-=-=-=-=-=-=-=-=-=");
+            C.setNascimento(informarData());
+    
+            ClientesCadastrados.add(C);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro ao cadastrar");
+        }
+    }
 
-        System.out.println("Digite a idade do cliente: ");
-        C.setIdade(scan.nextInt());        
 
-        System.out.println("Digite o CPF do cliente: ");
-        C.setCPF(scan.nextInt());
-
-        System.out.println("=-=-=-=-=-=-=-=-=-=-=-Vamos Agora Informar a Data De Nascimento do Cliente=-=-=-=-=-=-=-=-=-=-=-");
-        C.setNascimento(informarData());
-
-        ClientesCadastrados.add(C);
+    public void imprimirClientes()
+    {
+        if (ClientesCadastrados.size() != 0)
+        {
+            imprimirListaCliente(ClientesCadastrados);
+        }
     }
 }

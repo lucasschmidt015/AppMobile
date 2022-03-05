@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Cliente {
 
+    private int id;
     private String Nome;
     private int Idade;
     private int CPF;
@@ -9,6 +10,11 @@ public class Cliente {
 
     public Cliente(){
         this.Nascimento = new Data();
+    }
+
+    public void setId(int ID)
+    {
+        this.id = ID;
     }
 
     public void setNome(String Nome)
@@ -36,6 +42,11 @@ public class Cliente {
         this.Nascimento.Dia = dia;
         this.Nascimento.Mes = mes;
         this.Nascimento.Ano = ano;
+    }
+
+    public int getId()
+    {
+        return this.id;
     }
 
     public String getNome()

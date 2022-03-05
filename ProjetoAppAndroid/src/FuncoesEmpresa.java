@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FuncoesEmpresa {
@@ -32,4 +33,17 @@ public class FuncoesEmpresa {
 
         return data;
     }
+
+    protected void imprimirListaCliente(ArrayList<Cliente> clientes)
+    {
+        for (int i = 0; i < clientes.size(); i++)
+        {
+            System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+            System.out.println("ID: " + clientes.get(i).getId());
+            System.out.println("Nome: " + clientes.get(i).getNome());
+            System.out.println("Idade: " + clientes.get(i).getIdade());
+            System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+        }
+    }
+
 }
