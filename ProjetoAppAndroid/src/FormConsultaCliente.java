@@ -54,16 +54,16 @@ public class FormConsultaCliente extends Principal {
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-Vamos Agora Informar a Data De Nascimento do Cliente=-=-=-=-=-=-=-=-=-=-=-=-=");
         C.setNascimento(informarData());
 
-        ClientesCadastrados.add(C);
+        super.ClientesCadastrados.add(C);
         
     }
 
 
     public void imprimirClientes()
     {
-        if (ClientesCadastrados.size() != 0)
+        if (super.ClientesCadastrados.size() != 0)
         {
-            imprimirListaCliente(ClientesCadastrados);
+            imprimirListaCliente(super.ClientesCadastrados);
         }
         else{
             System.out.println("Não existem clientes cadastrados.");
