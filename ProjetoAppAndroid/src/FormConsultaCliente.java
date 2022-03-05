@@ -1,7 +1,27 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FormConsultaCliente extends Principal {
+
+    public Scanner scan = new Scanner(System.in);
+
+    public void criar(){
+        int opcao;
+
+        showMenuCliente();
+        opcao = scan.nextInt();
+
+        switch (opcao){
+            case 1:
+                this.cadastrarCliente();
+                break;
+            case 2:
+                this.imprimirClientes();
+                break;
+            default: 
+                ChamaConstrutor();
+        }
+    }
+
 
     public void showMenuCliente()
     {
@@ -15,8 +35,6 @@ public class FormConsultaCliente extends Principal {
     {
         try{
             Cliente C = new Cliente();
-            Scanner scan = new Scanner(System.in);
-            int Dia, Mes, Ano;
 
             System.out.println("Digite o id do cliente");
             C.setId(scan.nextInt());
@@ -47,6 +65,9 @@ public class FormConsultaCliente extends Principal {
         if (ClientesCadastrados.size() != 0)
         {
             imprimirListaCliente(ClientesCadastrados);
+        }
+        else{
+            System.out.println("Não existem clientes cadastrados.");
         }
     }
 }
