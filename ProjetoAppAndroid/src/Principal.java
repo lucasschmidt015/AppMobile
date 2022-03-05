@@ -5,6 +5,7 @@ public class Principal extends FuncoesEmpresa {
 
     //Lista que vai armazenar os dados de todos clientes cadastrados
     protected ArrayList<Cliente> ClientesCadastrados;
+    protected ArrayList<Cliente> ClientesCadastradosTemp;
 
 
     //Construtor da classe Pricipal que basicamente declara uma nova lista
@@ -34,7 +35,15 @@ public class Principal extends FuncoesEmpresa {
             {
                 case 1:
                     FormConsultaCliente cliente = new FormConsultaCliente();
-                    cliente.criar();
+                    ClientesCadastradosTemp = cliente.criar();
+                    if (ClientesCadastradosTemp != null)
+                    {
+                        for (int i = 0; i < ClientesCadastradosTemp.size(); i++)
+                        {
+                            this.ClientesCadastrados.add(ClientesCadastrados.get(i));
+                        }
+                        ClientesCadastradosTemp.clear();
+                    }
                     break;
                 default:
                     System.out.println("Deu");

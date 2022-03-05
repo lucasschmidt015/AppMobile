@@ -1,10 +1,12 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
-public class FormConsultaCliente extends Principal {
+public class FormConsultaCliente extends FuncoesEmpresa {
 
     public Scanner scan = new Scanner(System.in);
+    protected ArrayList<Cliente> ClientesCadastrados = new ArrayList<Cliente>();
 
-    public void criar(){
+    public ArrayList<Cliente> criar(){
         int opcao;
         boolean True = true;
         while (True){
@@ -21,6 +23,14 @@ public class FormConsultaCliente extends Principal {
                     True = false;
                     break;
             }
+        }
+        if (ClientesCadastrados.size() == 0)
+        {
+            return null;
+        }
+        else
+        {
+            return this.ClientesCadastrados;
         }
     }
 
@@ -54,16 +64,16 @@ public class FormConsultaCliente extends Principal {
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-Vamos Agora Informar a Data De Nascimento do Cliente=-=-=-=-=-=-=-=-=-=-=-=-=");
         C.setNascimento(informarData());
 
-        super.ClientesCadastrados.add(C);
+        this.ClientesCadastrados.add(C);
         
     }
 
 
     public void imprimirClientes()
     {
-        if (super.ClientesCadastrados.size() != 0)
+        if (this.ClientesCadastrados.size() != 0)
         {
-            imprimirListaCliente(super.ClientesCadastrados);
+            imprimirListaCliente(this.ClientesCadastrados);
         }
         else{
             System.out.println("Não existem clientes cadastrados.");
