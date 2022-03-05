@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FuncoesEmpresa {
-    
+    public Scanner scan = new Scanner(System.in);
+
     public static void showMenu()
     {
         String Mensagem = "[1] - Clientes   || [2] - Vendas\n"
@@ -19,7 +20,6 @@ public class FuncoesEmpresa {
 
     protected Data informarData()
     {
-        Scanner scan = new Scanner(System.in);
         Data data = new Data();
 
         System.out.println("Digite o Dia: ");

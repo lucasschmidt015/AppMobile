@@ -2,10 +2,11 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Principal extends FuncoesEmpresa {
-    protected ArrayList<Cliente> ClientesCadastrados = new ArrayList();
+    protected ArrayList<Cliente> ClientesCadastrados;
 
-    public Principal(){
-        this.initialize();
+    public Principal()
+    {
+        ClientesCadastrados = new ArrayList();
     }
 
     protected void ChamaConstrutor()
@@ -17,20 +18,23 @@ public class Principal extends FuncoesEmpresa {
     {
         Scanner scan = new Scanner(System.in);
         int opcao;
+        boolean True = true;
 
-
-        FuncoesEmpresa.showMenu();
-        opcao = scan.nextInt();
-
-        switch (opcao)
-        {
-            case 1:
-                FormConsultaCliente cliente = new FormConsultaCliente();
-                cliente.criar();
-                break;
-            default:
-                System.out.println("Deu");
-                break;
+        while (True){
+            FuncoesEmpresa.showMenu();
+            opcao = scan.nextInt();
+    
+            switch (opcao)
+            {
+                case 1:
+                    FormConsultaCliente cliente = new FormConsultaCliente();
+                    cliente.criar();
+                    break;
+                default:
+                    System.out.println("Deu");
+                    True = false;
+                    break;
+            }
         }
     }
 }

@@ -6,19 +6,21 @@ public class FormConsultaCliente extends Principal {
 
     public void criar(){
         int opcao;
-
-        showMenuCliente();
-        opcao = scan.nextInt();
-
-        switch (opcao){
-            case 1:
-                this.cadastrarCliente();
-                break;
-            case 2:
-                this.imprimirClientes();
-                break;
-            default: 
-                ChamaConstrutor();
+        boolean True = true;
+        while (True){
+            showMenuCliente();
+            opcao = scan.nextInt();
+            switch (opcao){
+                case 1:
+                    this.cadastrarCliente();
+                    break;
+                case 2:
+                    this.imprimirClientes();
+                    break;
+                default: 
+                    True = false;
+                    break;
+            }
         }
     }
 
